@@ -92,22 +92,36 @@ namespace SimpleMysqlManagement
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            string sDirPath = @"C:\temp";
+            DirectoryInfo di = new DirectoryInfo(sDirPath);
+            if (di.Exists == false)
+                di.Create();
+
             using (StreamWriter outputFile = new StreamWriter(@"C:\temp\loginData.dat"))
             {
                 outputFile.WriteLine(serverTextbox.Text);
                 outputFile.WriteLine(databaseTextbox.Text);
                 outputFile.WriteLine(userIDTextbox.Text);
                 outputFile.WriteLine(passwordTextbox.Text);
+                MessageBox.Show("저장 완료!");
             }
         }
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            string[] loadFile = File.ReadAllLines(@"C:\temp\loginData.dat");
-            serverTextbox.Text = loadFile[0];
-            databaseTextbox.Text = loadFile[1];
-            userIDTextbox.Text = loadFile[2];
-            passwordTextbox.Text = loadFile[3];
+            try
+            {
+                string[] loadFile = File.ReadAllLines(@"C:\temp\loginData.dat");
+                serverTextbox.Text = loadFile[0];
+                databaseTextbox.Text = loadFile[1];
+                userIDTextbox.Text = loadFile[2];
+                passwordTextbox.Text = loadFile[3];
+                MessageBox.Show("불러오기 완료");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
