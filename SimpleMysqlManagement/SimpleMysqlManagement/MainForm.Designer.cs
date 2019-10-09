@@ -33,6 +33,9 @@
             this.dbDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLabel = new System.Windows.Forms.Label();
             this.tableComboBox = new System.Windows.Forms.ComboBox();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.delBtn = new System.Windows.Forms.Button();
+            this.updateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +44,7 @@
             this.lang_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lang_Combobox.Font = new System.Drawing.Font("바탕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lang_Combobox.FormattingEnabled = true;
-            this.lang_Combobox.Location = new System.Drawing.Point(506, 22);
+            this.lang_Combobox.Location = new System.Drawing.Point(551, 16);
             this.lang_Combobox.Name = "lang_Combobox";
             this.lang_Combobox.Size = new System.Drawing.Size(121, 27);
             this.lang_Combobox.TabIndex = 0;
@@ -59,12 +62,15 @@
             // 
             // dbDataGridView
             // 
+            this.dbDataGridView.AllowUserToAddRows = false;
             this.dbDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbDataGridView.Location = new System.Drawing.Point(91, 53);
             this.dbDataGridView.Name = "dbDataGridView";
+            this.dbDataGridView.RowHeadersVisible = false;
             this.dbDataGridView.RowTemplate.Height = 23;
             this.dbDataGridView.Size = new System.Drawing.Size(399, 287);
             this.dbDataGridView.TabIndex = 2;
+            this.dbDataGridView.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DbDataGridView_RowValidated);
             // 
             // tableLabel
             // 
@@ -87,11 +93,45 @@
             this.tableComboBox.TabIndex = 4;
             this.tableComboBox.SelectedIndexChanged += new System.EventHandler(this.TableComboBox_SelectedIndexChanged);
             // 
+            // addBtn
+            // 
+            this.addBtn.Location = new System.Drawing.Point(63, 365);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(83, 34);
+            this.addBtn.TabIndex = 5;
+            this.addBtn.Text = "추가";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // delBtn
+            // 
+            this.delBtn.Location = new System.Drawing.Point(203, 365);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(87, 34);
+            this.delBtn.TabIndex = 6;
+            this.delBtn.Text = "삭제";
+            this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.DelBtn_Click);
+            // 
+            // updateBtn
+            // 
+            this.updateBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.updateBtn.Location = new System.Drawing.Point(359, 365);
+            this.updateBtn.Name = "updateBtn";
+            this.updateBtn.Size = new System.Drawing.Size(87, 34);
+            this.updateBtn.TabIndex = 7;
+            this.updateBtn.Text = "변경";
+            this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 382);
+            this.ClientSize = new System.Drawing.Size(743, 430);
+            this.Controls.Add(this.updateBtn);
+            this.Controls.Add(this.delBtn);
+            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.tableComboBox);
             this.Controls.Add(this.tableLabel);
             this.Controls.Add(this.dbDataGridView);
@@ -100,7 +140,6 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MysqlManagement";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,6 +153,9 @@
         private System.Windows.Forms.DataGridView dbDataGridView;
         private System.Windows.Forms.Label tableLabel;
         private System.Windows.Forms.ComboBox tableComboBox;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button delBtn;
+        private System.Windows.Forms.Button updateBtn;
     }
 }
 
