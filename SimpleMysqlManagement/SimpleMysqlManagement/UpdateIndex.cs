@@ -79,6 +79,7 @@ namespace SimpleMysqlManagement
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                mainForm.getConnection().Close();
             }
             mainForm.getConnection().Close();
 
