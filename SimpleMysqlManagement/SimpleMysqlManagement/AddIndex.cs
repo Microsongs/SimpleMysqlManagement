@@ -115,10 +115,10 @@ namespace SimpleMysqlManagement
             {
                 if (i == textboxList.Count - 1)
                 {
-                    insertQuery += textboxList[i].Text + ")";
+                    insertQuery += "'" + textboxList[i].Text + "')";
                 }
                 else {
-                    insertQuery += textboxList[i].Text + ", ";
+                    insertQuery += "'" + textboxList[i].Text + "', ";
                 }
             }
 
