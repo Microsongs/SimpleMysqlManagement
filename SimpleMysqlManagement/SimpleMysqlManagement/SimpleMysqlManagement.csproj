@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddColumn.Designer.cs">
+      <DependentUpon>AddColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="UpdateIndex.Designer.cs">
       <DependentUpon>UpdateIndex.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddColumn.resx">
+      <DependentUpon>AddColumn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddIndex.resx">
       <DependentUpon>AddIndex.cs</DependentUpon>
     </EmbeddedResource>

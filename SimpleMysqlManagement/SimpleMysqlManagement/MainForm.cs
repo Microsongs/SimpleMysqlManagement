@@ -170,5 +170,13 @@ namespace SimpleMysqlManagement
             updateIndex.ShowDialog();
             DBdataGridViewInit();
         }
+
+        private void addColumnBtn_Click(object sender, EventArgs e)
+        {
+            AddColumn addColumn = new AddColumn(this);
+            addColumn.ShowDialog();
+            TableInit();
+            DBdataGridViewInit();
+        }
     }
 }
