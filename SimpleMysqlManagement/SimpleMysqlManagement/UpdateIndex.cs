@@ -18,6 +18,7 @@ namespace SimpleMysqlManagement
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            Init();
         }
         private void Init()
         {

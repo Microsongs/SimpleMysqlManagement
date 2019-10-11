@@ -38,7 +38,7 @@ namespace SimpleMysqlManagement
                     break;
                 case Language.korean:
                     deleteLabel.Text = "삭제 조건 입력";
-                    enterBtn.Text = "Enter";
+                    enterBtn.Text = "입력";
                     break;
 
                 case Language.japanese:

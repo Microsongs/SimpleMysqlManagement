@@ -103,7 +103,7 @@ namespace SimpleMysqlManagement
                 outputFile.WriteLine(databaseTextbox.Text);
                 outputFile.WriteLine(userIDTextbox.Text);
                 outputFile.WriteLine(passwordTextbox.Text);
-                MessageBox.Show("저장 완료!");
+                MessageBox.Show("Save Complete!");
             }
         }
 
@@ -116,7 +116,7 @@ namespace SimpleMysqlManagement
                 databaseTextbox.Text = loadFile[1];
                 userIDTextbox.Text = loadFile[2];
                 passwordTextbox.Text = loadFile[3];
-                MessageBox.Show("불러오기 완료");
+                MessageBox.Show("Load Complete");
             }
             catch(Exception ex)
             {
