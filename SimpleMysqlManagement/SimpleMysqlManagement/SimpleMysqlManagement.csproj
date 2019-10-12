@@ -65,6 +65,12 @@
     <Compile Include="DeleteIndex.Designer.cs">
       <DependentUpon>DeleteIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="DropColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DropColumn.Designer.cs">
+      <DependentUpon>DropColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddIndex.resx">
       <DependentUpon>AddIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropColumn.resx">
+      <DependentUpon>DropColumn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteIndex.resx">
       <DependentUpon>DeleteIndex.cs</DependentUpon>

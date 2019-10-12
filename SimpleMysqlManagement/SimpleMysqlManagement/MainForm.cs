@@ -46,14 +46,17 @@ namespace SimpleMysqlManagement
             tableComboBox.Location = new Point(tableLabel.Location.X + tableLabel.Width + 5, tableLabel.Location.Y);
 
             // 버튼의 위치 초기화
-            addBtn.Location = new Point(this.Width / 2 - addBtn.Width - 20, dbDataGridView.Height + dbDataGridView.Location.Y + 20);
-            delBtn.Location = new Point(addBtn.Location.X + addBtn.Width + 30, dbDataGridView.Height + dbDataGridView.Location.Y + 20);
-            updateBtn.Location = new Point(delBtn.Location.X + delBtn.Width + 30, dbDataGridView.Height + dbDataGridView.Location.Y + 20);
+            addBtn.Location = new Point(this.Width / 4, dbDataGridView.Height + dbDataGridView.Location.Y + 10);
+            delBtn.Location = new Point(addBtn.Location.X + addBtn.Width + 30, addBtn.Location.Y);
+            updateBtn.Location = new Point(delBtn.Location.X + delBtn.Width + 30, addBtn.Location.Y);
+            addColumnBtn.Location = new Point(addBtn.Location.X, addBtn.Location.Y + addBtn.Height + 10);
+            dropColumnBtn.Location = new Point(delBtn.Location.X, addColumnBtn.Location.Y);
         }
 
         // 테이블의 초기화
         private void TableInit()
         {
+            
             connection.Close();
             string insertQuery = "select table_name from information_schema.tables where table_schema = '" +connection.Database.ToString() + "';";
             Debug.WriteLine(insertQuery);
@@ -101,18 +104,24 @@ namespace SimpleMysqlManagement
                     addBtn.Text = "Add";
                     delBtn.Text = "Delete";
                     updateBtn.Text = "Update";
+                    addColumnBtn.Text = "add Column";
+                    dropColumnBtn.Text = "drop Column";
                     break;
                 case Language.korean:
                     dbNameLabel.Text = "데이터베이스 : " + connection.Database.ToString();
                     addBtn.Text = "추가";
                     delBtn.Text = "삭제";
                     updateBtn.Text = "변경";
+                    addColumnBtn.Text = "컬럼 추가";
+                    dropColumnBtn.Text = "컬럼 삭제";
                     break;
                 case Language.japanese:
                     dbNameLabel.Text = "データベース : " + connection.Database.ToString();
                     addBtn.Text = "追加";
                     delBtn.Text = "削除";
                     updateBtn.Text = "変更";
+                    addColumnBtn.Text = "列を追加";
+                    dropColumnBtn.Text = "列を削除";
                     break;
             }
             // 위치 재설정
@@ -175,7 +184,14 @@ namespace SimpleMysqlManagement
         {
             AddColumn addColumn = new AddColumn(this);
             addColumn.ShowDialog();
-            TableInit();
+            //TableInit();
+            DBdataGridViewInit();
+        }
+
+        private void dropColumnBtn_Click(object sender, EventArgs e)
+        {
+            DropColumn dropColumn = new DropColumn(this);
+            dropColumn.ShowDialog();
             DBdataGridViewInit();
         }
     }

@@ -37,6 +37,7 @@
             this.delBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.addColumnBtn = new System.Windows.Forms.Button();
+            this.dropColumnBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.lang_Combobox.Font = new System.Drawing.Font("바탕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lang_Combobox.FormattingEnabled = true;
             this.lang_Combobox.Location = new System.Drawing.Point(1023, 32);
-            this.lang_Combobox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.lang_Combobox.Margin = new System.Windows.Forms.Padding(6);
             this.lang_Combobox.Name = "lang_Combobox";
             this.lang_Combobox.Size = new System.Drawing.Size(221, 46);
             this.lang_Combobox.TabIndex = 0;
@@ -68,7 +69,7 @@
             this.dbDataGridView.AllowUserToAddRows = false;
             this.dbDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbDataGridView.Location = new System.Drawing.Point(169, 106);
-            this.dbDataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dbDataGridView.Margin = new System.Windows.Forms.Padding(6);
             this.dbDataGridView.Name = "dbDataGridView";
             this.dbDataGridView.RowHeadersVisible = false;
             this.dbDataGridView.RowHeadersWidth = 82;
@@ -94,7 +95,7 @@
             this.tableComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tableComboBox.FormattingEnabled = true;
             this.tableComboBox.Location = new System.Drawing.Point(147, 18);
-            this.tableComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tableComboBox.Margin = new System.Windows.Forms.Padding(6);
             this.tableComboBox.Name = "tableComboBox";
             this.tableComboBox.Size = new System.Drawing.Size(221, 44);
             this.tableComboBox.TabIndex = 4;
@@ -103,7 +104,7 @@
             // addBtn
             // 
             this.addBtn.Location = new System.Drawing.Point(183, 692);
-            this.addBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.addBtn.Margin = new System.Windows.Forms.Padding(6);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(154, 68);
             this.addBtn.TabIndex = 5;
@@ -114,7 +115,7 @@
             // delBtn
             // 
             this.delBtn.Location = new System.Drawing.Point(385, 692);
-            this.delBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.delBtn.Margin = new System.Windows.Forms.Padding(6);
             this.delBtn.Name = "delBtn";
             this.delBtn.Size = new System.Drawing.Size(162, 68);
             this.delBtn.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             this.updateBtn.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.updateBtn.Location = new System.Drawing.Point(586, 692);
-            this.updateBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.updateBtn.Margin = new System.Windows.Forms.Padding(6);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(162, 68);
             this.updateBtn.TabIndex = 7;
@@ -144,11 +145,22 @@
             this.addColumnBtn.UseVisualStyleBackColor = true;
             this.addColumnBtn.Click += new System.EventHandler(this.addColumnBtn_Click);
             // 
+            // dropColumnBtn
+            // 
+            this.dropColumnBtn.Location = new System.Drawing.Point(385, 778);
+            this.dropColumnBtn.Name = "dropColumnBtn";
+            this.dropColumnBtn.Size = new System.Drawing.Size(162, 70);
+            this.dropColumnBtn.TabIndex = 9;
+            this.dropColumnBtn.Text = "dropColumnBtn";
+            this.dropColumnBtn.UseVisualStyleBackColor = true;
+            this.dropColumnBtn.Click += new System.EventHandler(this.dropColumnBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1380, 860);
+            this.Controls.Add(this.dropColumnBtn);
             this.Controls.Add(this.addColumnBtn);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.delBtn);
@@ -158,7 +170,7 @@
             this.Controls.Add(this.dbDataGridView);
             this.Controls.Add(this.dbNameLabel);
             this.Controls.Add(this.lang_Combobox);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MysqlManagement";
@@ -179,6 +191,7 @@
         private System.Windows.Forms.Button delBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button addColumnBtn;
+        private System.Windows.Forms.Button dropColumnBtn;
     }
 }
 

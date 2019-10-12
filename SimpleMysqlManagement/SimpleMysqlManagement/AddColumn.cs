@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,6 +67,61 @@ namespace SimpleMysqlManagement
             optionTextBox.Location = new Point(nameTextBox.Location.X, optionLabel.Location.Y);
 
             enterBtn.Location = new Point(this.Width / 2 - enterBtn.Width / 2, optionLabel.Location.Y + optionLabel.Height + 10);
+        }
+
+        private void enterBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.getConnection().Close();
+            string insertQuery = "alter table " + mainForm.getTable() + " add ";
+            insertQuery += nameTextBox.Text + " " +typeTextBox.Text + " " + optionTextBox.Text;
+            mainForm.getConnection().Open();
+            System.Diagnostics.Debug.WriteLine(insertQuery);
+            MySqlCommand command = new MySqlCommand(insertQuery, mainForm.getConnection());
+            try
+            {
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    switch (mainForm.getLang())
+                    {
+                        case Language.english:
+                            MessageBox.Show("add Success");
+                            break;
+
+                        case Language.korean:
+                            MessageBox.Show("컬럼 추가 성공");
+                            break;
+
+                        case Language.japanese:
+                            MessageBox.Show("追加成功");
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (mainForm.getLang())
+                    {
+                        case Language.english:
+                            MessageBox.Show("add Fail");
+                            break;
+
+                        case Language.korean:
+                            MessageBox.Show("컬럼 추가 실패");
+                            break;
+
+                        case Language.japanese:
+                            MessageBox.Show("追加失敗");
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                mainForm.getConnection().Close();
+            }
+            mainForm.getConnection().Close();
+
+            this.Close();
         }
     }
 }

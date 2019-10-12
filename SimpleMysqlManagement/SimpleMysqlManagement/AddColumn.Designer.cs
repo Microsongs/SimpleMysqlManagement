@@ -101,6 +101,7 @@
             this.enterBtn.TabIndex = 6;
             this.enterBtn.Text = "enterBtn";
             this.enterBtn.UseVisualStyleBackColor = true;
+            this.enterBtn.Click += new System.EventHandler(this.enterBtn_Click);
             // 
             // addColumnLabel
             // 
